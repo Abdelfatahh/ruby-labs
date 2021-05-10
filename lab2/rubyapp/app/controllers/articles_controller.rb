@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
+    before_action :authenticate_request!
     def index
         @articles = Article.all
+        render json: @articles
     end
 
     def show
